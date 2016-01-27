@@ -42,6 +42,8 @@ PlatformData i_xpData = pReq.getData();
 // Get
 VariableList in_vl = i_xpData.getVariableList();
 String in_var2 = in_vl.getString("sVal1");
+String in_var3 = in_vl.getString("sVal2");
+System.out.println("sVal2:"+in_var3);
 DataSet ds = i_xpData.getDataSet("in_ds");
 
 try {	
@@ -55,7 +57,7 @@ try {
 		//conn = DriverManager.getConnection("jdbc:sqlserver://61.107.23.159:1433;DatabaseName=EDU;User=edu;Password=edu123");
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-    conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
+    conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "scott", "tiger");
     
 		stmt = conn.createStatement();
 	
@@ -94,6 +96,7 @@ try {
 							"SALARY         = '" + dsGet(ds,i,"SALARY"     ) + "'," +
 							"EMPL_MEMO      = '" + dsGet(ds,i,"EMPL_MEMO"  ) + "' " +
 							"WHERE EMPL_ID = " + "'" + org_id + "'";
+				System.out.println(">>> UPDATE : "+SQL);
 			}
 			rs = stmt.executeQuery(SQL);
 		}
@@ -104,6 +107,7 @@ try {
 			SQL = "DELETE FROM EMPLOYEES WHERE " +
 					  "EMPL_ID = " + "'" + del_id + "'";
 			rs = stmt.executeQuery(SQL);
+			System.out.println("DELETE:"+rs);
 		}
 		
 		//conn.commit();
