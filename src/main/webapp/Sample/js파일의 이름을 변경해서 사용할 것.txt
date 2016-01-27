@@ -1,0 +1,3 @@
+사용하는 버전에 따라
+rdObject_Ansi버전.js → rdObject.js 또는
+rdObject_Unicode버전.js → rdObject.js

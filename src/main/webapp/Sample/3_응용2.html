@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Report Designer</title>
+
+<SCRIPT ID=clientEventHandlersJS LANGUAGE = "JavaScript">
+
+	img_cnt = 11;
+	first_img =new Array(img_cnt + 1);
+	for (var i = 1; i<=img_cnt; i++) {first_img[i] = new Image() } 
+	first_img[1].src = "img/menu/save_1.gif" 
+	first_img[2].src = "img/menu/print_1.gif" 
+	first_img[3].src = "img/menu/first_1.gif"
+	first_img[4].src = "img/menu/back_1.gif" 
+	first_img[5].src = "img/menu/next_1.gif"
+	first_img[6].src = "img/menu/last_1.gif"
+	first_img[7].src = "img/menu/zoomin_1.gif" 
+	first_img[8].src = "img/menu/zoomout_1.gif" 
+	first_img[9].src = "img/menu/excel_1.gif" 
+	first_img[10].src = "img/menu/hwp_1.gif" 
+	first_img[11].src = "img/menu/close_1.gif" 
+
+	over_img =new Array(img_cnt + 1);
+	for (var i = 1; i<=img_cnt; i++) { over_img[i] = new Image() } 
+	over_img[1].src = "img/menu/save_2.gif"
+	over_img[2].src = "img/menu/print_2.gif" 
+	over_img[3].src = "img/menu/first_2.gif" 
+	over_img[4].src = "img/menu/back_2.gif"
+	over_img[5].src = "img/menu/next_2.gif"
+	over_img[6].src = "img/menu/last_2.gif"
+	over_img[7].src = "img/menu/zoomin_2.gif"
+	over_img[8].src = "img/menu/zoomout_2.gif"
+	over_img[9].src = "img/menu/excel_2.gif"
+	over_img[10].src = "img/menu/hwp_2.gif"
+	over_img[11].src = "img/menu/close_2.gif"
+
+	function msover(num) {
+		document.images[num].src = over_img[num].src
+ 	}
+
+	function msout(num) {
+		document.images[num].src =first_img[num].src
+	}
+
+	function rd_onload() {
+
+		rdViewer.AutoAdjust = false;
+		rdViewer.ZoomRatio = 100;
+		rdViewer.SetBackgroundColor(255,255,255);
+
+		rdViewer.HideToolBar();
+/*
+		rdViewer.SetPageLineColor(255,255,255);
+		rdViewer.ViewShowMode(2);
+*/
+		rdViewer.FileOpen("http://server_ip:port/report/mrd/sample.mrd", "/riprnmargin /rv variable_name1[value1] variable_name2[value2] /rp [aaa1] [aaa2] [aaa3]");
+
+//		rdViewer.FileOpen("http://server_ip:port/report/mrd/sample.mrd", "/riprnmargin /rdebugmode [1] /rf [http://server_ip:port/RDServer/rdagent.jsp] /rv variable_name1[value1] variable_name2[value2] /rp [aaa1] [aaa2] [aaa3] /rwait");
+	}
+</SCRIPT>
+
+</head>
+
+<body leftmargin=0 topmargin=0 scroll=no onload="rd_onload()">
+
+<table border=0>
+	<tr>
+		<td width=25></td>
+		<td><img src="img/logo.gif"></td>
+		<td><image src="img/menu/save_1.gif"   OnMouseOver="msover(1) ; return false"
+			OnMouseOut="msout(1)" OnClick="rdViewer.SaveAsDialog()"></td>
+		<td><image src="img/menu/print_1.gif"  OnMouseOver="msover(2) ; return false"
+			OnMouseOut="msout(2)" OnClick="rdViewer.PrintDialog()"></td>
+		<td><image src="img/menu/first_1.gif"  OnMouseOver="msover(3) ; return false"
+			OnMouseOut="msout(3)" OnClick="rdViewer.FirstPage()"></td>
+		<td><image src="img/menu/back_1.gif"   OnMouseOver="msover(4) ; return false"
+			OnMouseOut="msout(4)" OnClick="rdViewer.PrevPage()"></td>
+		<td><image src="img/menu/next_1.gif"   OnMouseOver="msover(5) ; return false"
+			OnMouseOut="msout(5)" OnClick="rdViewer.NextPage()"></td>
+		<td><image src="img/menu/last_1.gif"    OnMouseOver="msover(6) ; return false"
+			OnMouseOut="msout(6)" OnClick="rdViewer.LastPage()"></td>
+		<td><image src="img/menu/zoomin_1.gif"  OnMouseOver="msover(7) ; return false"
+			OnMouseOut="msout(7)" OnClick="rdViewer.ZoomIn()"></td>
+		<td><image src="img/menu/zoomout_1.gif" OnMouseOver="msover(8) ; return false"
+			OnMouseOut="msout(8)" OnClick="rdViewer.ZoomOut()"></td>
+		<td><image src="img/menu/excel_1.gif"  OnMouseOver="msover(9) ; return false"
+			OnMouseOut="msout(9)" OnClick="rdViewer.ViewExcel()"></td>
+		<td><image src="img/menu/hwp_1.gif" OnMouseOver="msover(10) ; return false"
+			OnMouseOut="msout(10)" OnClick="rdViewer.ViewHWP()"></td>
+		<td><image src="img/menu/close_1.gif"   OnMouseOver="msover(11) ; return false"
+			OnMouseOut="msout(11)" OnClick="window.close()"></td>
+	</tr>
+</table>
+
+<Script src = "rdObject.js"> </Script>
+ 
+</body>
+</html>

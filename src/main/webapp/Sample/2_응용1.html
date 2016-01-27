@@ -1,0 +1,21 @@
+<html>
+<head><title>Report Designer</title></head>
+
+<body scroll=no bottommargin=0 OnLoad="javascript:rd_onload()">
+
+<SCRIPT leftmargin=0 topmargin=0 scroll=no LANGUAGE = "JavaScript">
+<!--	-->
+	
+	function rd_onload() {	
+
+		rdViewer.FileOpen("http://server_ip:port/report/mrd/sample.mrd", "/riprnmargin /rv variable_name1[value1] variable_name2[value2] /rp [aaa1] [aaa2] [aaa3]");
+
+//		rdViewer.FileOpen("http://server_ip:port/report/mrd/sample.mrd", "/riprnmargin /rdebugmode [1] /rf [http://server_ip:port/RDServer/rdagent.jsp] /rv variable_name1[value1] variable_name2[value2] /rp [aaa1] [aaa2] [aaa3] /rwait");
+	}
+
+</SCRIPT>
+
+<SCRIPT src="rdObject.js"></SCRIPT>
+
+</body>
+</html>

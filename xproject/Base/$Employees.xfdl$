@@ -50,7 +50,7 @@
               <MaskEdit id="MaskEdit00" taborder="1" position2="absolute l:161 w:147 t:87 h:20" positiontype="position2" mask="AA-###" type="string"/>
               <TextArea id="TextArea00" taborder="1" position2="absolute l:171 w:90 t:455 h:20" positiontype="position2"/>
               <Calendar id="Calendar00" taborder="1" position2="absolute l:161 w:150 t:147 h:20" positiontype="position2" dateformat="yyyy-MM-dd" value="null" editformat="yyyyMMdd"/>
-              <CheckBox id="CheckBox00" taborder="1" text="CheckBox00" position2="absolute l:161 w:150 t:207 h:20" positiontype="position2"/>
+              <CheckBox id="CheckBox00" taborder="1" text="CheckBox00" position2="absolute l:161 w:150 t:207 h:20" positiontype="position2" falsevalue="0" truevalue="1"/>
               <MaskEdit id="MaskEdit01" taborder="1" position2="absolute l:161 w:90 t:267 h:20" positiontype="position2" mask="#,###"/>
               <Radio id="Radio00" taborder="1" columncount="2" rowcount="0" position2="absolute l:161 w:280 t:327 h:20" positiontype="position2" codecolumn="codecolumn" datacolumn="datacolumn">
                 <Dataset id="innerdataset">
@@ -84,7 +84,7 @@
           <Column id="DEPT_ID" type="STRING" size="2"/>
           <Column id="HIRE_DATE" type="DATE" size="8"/>
           <Column id="GENDER" type="STRING" size="1"/>
-          <Column id="MARRIED" type="STRING" size="1"/>
+          <Column id="MARRIED" type="INT" size="1"/>
           <Column id="SALARY" type="INT" size="10"/>
           <Column id="EMPL_MEMO" type="STRING" size="500"/>
         </ColumnInfo>
@@ -158,6 +158,8 @@ function ds_employees_onload(obj:Dataset, e:DSLoadEventInfo)
 function fn_add(obj:Button,  e:ClickEventInfo)
 {
 	ds_employees.addRow();
+	ds_employees.setColumn(ds_employees.rowposition,"MARRIED","0");
+
 }
 
 function fn_delete(obj:Button,  e:ClickEventInfo)
@@ -187,6 +189,7 @@ function fn_callback(trID,nCD,sMSG)
 		trace("성공:"+sMSG);
 		}
 	}
+	Button00_onclick();
 }
 ]]></Script>
   </Form>
