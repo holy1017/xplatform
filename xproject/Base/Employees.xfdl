@@ -167,11 +167,12 @@ function Button00_onclick(obj:Button,  e:ClickEventInfo)
 {
 	ds_employees.url="DataURL::employees_select.jsp";
 	ds_employees.load();
+	trace(ds_employees.url);
 }
 
 function ds_employees_onload(obj:Dataset, e:DSLoadEventInfo)
 {
-	
+	ds_employees.load();
 }
 
 function fn_add(obj:Button,  e:ClickEventInfo)
@@ -196,6 +197,9 @@ function fn_save(obj:Button,  e:ClickEventInfo)
 	,"sVal1=1 sVal2='1 2 3'"
 	,"fn_callback"
 	);
+	ds_employees.url="DataURL::employees_select.jsp";
+	ds_employees.load();
+	
 }
 function fn_callback(trID,nCD,sMSG)
 {

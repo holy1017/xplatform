@@ -15,7 +15,7 @@ PlatformData o_xpData = new PlatformData();
 	
 int nErrorCode = 0;
 String strErrorMsg = "START";
-String sTest="111";
+String sTest="미처리됨ㄴ";
 
 try {	
 	/******* JDBC Connection *******/

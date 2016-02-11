@@ -111,7 +111,40 @@ try {
 		}
 		
 		//conn.commit();
+		
+		SQL="select * from employees"; 
+		
+		rs = stmt.executeQuery(SQL);
 
+		 ds = new DataSet("ds_employees");
+	  
+	  ds.addColumn("EMPL_ID"   ,DataTypes.STRING  ,(short)10   );
+	  ds.addColumn("FULL_NAME" ,DataTypes.STRING  ,(short)50   );
+	  ds.addColumn("HIRE_DATE" ,DataTypes.STRING  ,(short)30   );
+	  ds.addColumn("MARRIED"   ,DataTypes.STRING  ,(short)1    );
+	  ds.addColumn("SALARY"    ,DataTypes.INT     ,(short)10   );
+	  ds.addColumn("GENDER"    ,DataTypes.STRING  ,(short)1    );
+	  ds.addColumn("DEPT_ID"   ,DataTypes.STRING  ,(short)10   );
+	  ds.addColumn("EMPL_MEMO" ,DataTypes.STRING  ,(short)4000 );
+	  	  
+	  while(rs.next())
+	  {
+	  	int row = ds.newRow();
+
+	  	ds.set(row ,"EMPL_ID"    ,rs.getString("EMPL_ID")   );
+	  	ds.set(row ,"FULL_NAME"  ,rs.getString("FULL_NAME") );
+	  	ds.set(row ,"HIRE_DATE"  ,rs.getString("HIRE_DATE") );
+	  	ds.set(row ,"MARRIED"    ,rs.getString("MARRIED")   );
+	  	ds.set(row ,"SALARY"     ,rs.getString("SALARY")    );
+	  	ds.set(row ,"GENDER"     ,rs.getString("GENDER")    );
+	  	ds.set(row ,"DEPT_ID"    ,rs.getString("DEPT_ID")   );
+	  	ds.set(row ,"EMPL_MEMO"  ,rs.getString("EMPL_MEMO") );
+	  }
+	  	
+		// DataSet-->PlatformData
+		o_xpData.addDataSet(ds);
+
+	 
 	} catch (SQLException e) {
 		// VariableList에 값을 직접 추가
 		nErrorCode = -1;
