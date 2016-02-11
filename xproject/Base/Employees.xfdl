@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FDL version="1.4">
+<FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
   <Form id="Employees" classname="Employees" inheritanceid="" position="absolute 0 0 800 600" titletext="New Form">
     <Layouts>
       <Layout>
-        <Button id="Button00" taborder="0" text="retrieve" position2="absolute l:314 w:120 t:8 h:50" positiontype="position2" onclick="Button00_onclick"/>
-        <Button id="Button01" taborder="1" text="add" position2="absolute l:434 w:120 t:8 h:50" positiontype="position2" onclick="fn_add"/>
-        <Button id="Button02" taborder="1" text="delete" position2="absolute l:554 w:120 t:8 h:50" positiontype="position2" onclick="fn_delete"/>
-        <Button id="Button03" taborder="1" text="save" position2="absolute l:674 w:120 t:8 h:50" positiontype="position2" onclick="fn_save"/>
-        <Grid id="Grid00" taborder="1" useinputpanel="false" position2="absolute l:12 w:299 t:71 h:519" positiontype="position2" binddataset="ds_employees">
+        <Button id="Button00" taborder="0" text="retrieve" position2="absolute l:314 w:120 t:8 h:50" positiontype="position2" onclick="Button00_onclick" hotkey="CTRL+R"/>
+        <Button id="Button01" taborder="1" text="add" position2="absolute l:434 w:120 t:8 h:50" positiontype="position2" onclick="fn_add" hotkey="CTRL+A"/>
+        <Button id="Button02" taborder="2" text="delete" position2="absolute l:554 w:120 t:8 h:50" positiontype="position2" onclick="fn_delete" hotkey="CTRL+D"/>
+        <Button id="Button03" taborder="3" text="save" position2="absolute l:674 w:120 t:8 h:50" positiontype="position2" onclick="fn_save" hotkey="CTRL+S"/>
+        <Grid id="Grid00" taborder="4" useinputpanel="false" position2="absolute l:12 w:299 t:71 h:519" positiontype="position2" binddataset="ds_employees">
           <Formats>
             <Format id="default">
               <Columns>
@@ -35,7 +35,7 @@
             </Format>
           </Formats>
         </Grid>
-        <Div id="Div00" taborder="1" position2="absolute l:314 w:480 t:72 h:519" positiontype="position2" text="Div00">
+        <Div id="Div00" taborder="5" position2="absolute l:314 w:480 t:72 h:519" positiontype="position2" text="Div00">
           <Layouts>
             <Layout>
               <Static id="Static00" text="full name" position2="absolute l:7 w:120 t:10 h:60" positiontype="position2"/>
@@ -46,13 +46,13 @@
               <Static id="Static05" text="gender" position2="absolute l:7 w:120 t:310 h:60" positiontype="position2"/>
               <Static id="Static06" text="deptid" position2="absolute l:7 w:120 t:370 h:60" positiontype="position2"/>
               <Static id="Static07" text="memo" position2="absolute l:7 w:120 t:430 h:60" positiontype="position2"/>
-              <Edit id="Edit00" taborder="1" position2="absolute l:161 w:140 t:27 h:20" positiontype="position2"/>
-              <MaskEdit id="MaskEdit00" taborder="1" position2="absolute l:161 w:147 t:87 h:20" positiontype="position2" mask="AA-###" type="string"/>
-              <TextArea id="TextArea00" taborder="1" position2="absolute l:171 w:90 t:455 h:20" positiontype="position2"/>
-              <Calendar id="Calendar00" taborder="1" position2="absolute l:161 w:150 t:147 h:20" positiontype="position2" dateformat="yyyy-MM-dd" value="null" editformat="yyyyMMdd"/>
-              <CheckBox id="CheckBox00" taborder="1" text="CheckBox00" position2="absolute l:161 w:150 t:207 h:20" positiontype="position2" falsevalue="0" truevalue="1"/>
-              <MaskEdit id="MaskEdit01" taborder="1" position2="absolute l:161 w:90 t:267 h:20" positiontype="position2" mask="#,###"/>
-              <Radio id="Radio00" taborder="1" columncount="2" rowcount="0" position2="absolute l:161 w:280 t:327 h:20" positiontype="position2" codecolumn="codecolumn" datacolumn="datacolumn">
+              <Edit id="Edit00" taborder="0" position2="absolute l:161 w:140 t:27 h:20" positiontype="position2"/>
+              <MaskEdit id="MaskEdit00" taborder="1" position2="absolute l:161 w:147 t:87 h:20" mask="AA-###" type="string" positiontype="position2"/>
+              <TextArea id="TextArea00" taborder="7" position2="absolute l:208 w:90 t:437 h:20" positiontype="position2"/>
+              <Calendar id="Calendar00" taborder="2" position2="absolute l:161 w:150 t:147 h:20" dateformat="yyyy-MM-dd" value="null" editformat="yyyyMMdd" positiontype="position2"/>
+              <CheckBox id="CheckBox00" taborder="3" text="CheckBox00" position2="absolute l:161 w:150 t:207 h:20" falsevalue="0" truevalue="1" positiontype="position2"/>
+              <MaskEdit id="MaskEdit01" taborder="4" position2="absolute l:161 w:90 t:267 h:20" mask="#,###" positiontype="position2"/>
+              <Radio id="Radio00" taborder="5" columncount="2" rowcount="0" position2="absolute l:173 w:280 t:327 h:20" codecolumn="codecolumn" datacolumn="datacolumn" positiontype="position2">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -70,10 +70,28 @@
                   </Rows>
                 </Dataset>
               </Radio>
-              <Combo id="Combo00" taborder="1" text="Combo00" position2="absolute l:161 w:150 t:387 h:20" positiontype="position2" innerdataset="@ds_dept" codecolumn="code" datacolumn="text"/>
+              <Combo id="Combo00" taborder="6" text="Combo00" position2="absolute l:161 w:150 t:387 h:20" innerdataset="@ds_dept" codecolumn="code" datacolumn="text" positiontype="position2"/>
             </Layout>
           </Layouts>
         </Div>
+        <Radio id="Radio00" taborder="6" columncount="0" rowcount="0" position2="absolute l:670 w:142 t:192 h:90" positiontype="position2" codecolumn="codecolumn" datacolumn="datacolumn">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">w</Col>
+                <Col id="datacolumn">www</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">m</Col>
+                <Col id="datacolumn">mmm</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
       </Layout>
     </Layouts>
     <Objects>
@@ -142,6 +160,7 @@
       <BindItem id="item6" compid="Div00.MaskEdit01" propid="value" datasetid="ds_employees" columnid="SALARY"/>
       <BindItem id="item7" compid="Div00.Combo00" propid="value" datasetid="ds_employees" columnid="DEPT_ID"/>
       <BindItem id="item8" compid="Div00.Radio00" propid="value" datasetid="ds_employees" columnid="GENDER"/>
+      <BindItem id="item9" compid="Radio00" propid="innerdataset" datasetid="ds_employees" columnid="GENDER"/>
     </Bind>
     <Script type="xscript4.0"><![CDATA[
 function Button00_onclick(obj:Button,  e:ClickEventInfo)
